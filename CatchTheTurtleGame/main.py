@@ -49,7 +49,7 @@ def make_turtle(x, y):
     t.penup()
     t.shape("turtle")
     t.shapesize(2,2)
-    t.color("dark green")
+    t.color("purple")
     t.goto(x * grid_size, y * grid_size)
     turtle_list.append(t)
 
@@ -67,7 +67,7 @@ def show_turtles_randomly():
     if not game_over:
         hide_turtles()
         random.choice(turtle_list).showturtle()
-        screen.ontimer(show_turtles_randomly,1000)
+        screen.ontimer(show_turtles_randomly,2000)
 
 def countdown(time):
     global game_over
@@ -94,7 +94,7 @@ def start_game_up():
     setup_turtles()
     hide_turtles()
     show_turtles_randomly()
-    countdown(10)
+    countdown(25)
     turtle.tracer(1)
 
 start_game_up()

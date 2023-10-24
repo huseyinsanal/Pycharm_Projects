@@ -5,6 +5,7 @@ turtle_screen.bgcolor("light blue")
 turtle_screen.title("Python Turtle")
 
 turtle_instance = turtle.Turtle()
+turtle_instance.shape("turtle")
 turtle_instance.color("green")
 turtle.speed(0)
 
