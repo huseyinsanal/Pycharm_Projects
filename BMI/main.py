@@ -27,16 +27,31 @@ height_entry.pack()
 
 def button_clicked():
 
-    height_string = height_entry.get()
-    mass_string = mass_entry.get()
+    height_value = height_entry.get()
+    mass_value = mass_entry.get()
 
-    mass_value = int(mass_string)
-    height_value = int(height_string)
+    try:
 
-    result = mass_value / ((height_value / 100)**2)
-    bmi_label.config(text=result)
+        bmi_result = float(mass_value) / ((float(height_value) / 100)**2)
 
-    print("Button Clicked")
+        if bmi_result < 18.5:
+            user_info = f"Your BMI result is {round(bmi_result,2)}. And you are Underweight! "
+        elif 18.5 <= bmi_result < 25:
+            user_info = f"Your BMI result is {round(bmi_result, 2)}. And you are in Normal Range. "
+        elif 25 <= bmi_result < 30:
+            user_info = f"Your BMI result is {round(bmi_result, 2)}. And you are Overweight! "
+        elif 30 <= bmi_result < 35:
+            user_info = f"Your BMI result is {round(bmi_result, 2)}. And you are Obese Class 1! "
+        elif 35 <= bmi_result < 40:
+            user_info = f"Your BMI result is {round(bmi_result, 2)}. And you are Obese Class 2! "
+        else:
+            user_info = f"Your BMI result is {round(bmi_result, 2)}. And you are Obese Class 3! "
+
+        bmi_label.config(text=user_info)
+
+
+    except:
+        bmi_label.config(text="Please write a valid number.")
 
 button = tkinter.Button(text="Calculate",command=button_clicked)
 button.pack()
